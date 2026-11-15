@@ -9,9 +9,9 @@
 <body>
     <!--halaman ke-4-->
 
-    <form action="">
+    <form action="akhir.html" method="GET">
         <!-- Metode Pembayaran -->
-        <label for="method">Metode Pembayaran</label><br>
+        <label for="method"><h5>Metode Pembayaran</h5></label><br>
         <div class="card">
             <div class="card-body ">
                 <input type="radio" name="method" value="transfer">Transfer <br><hr>
@@ -20,20 +20,40 @@
         </div><br>
 
     <!-- Pemilihan Ekspedisi -->
-        <label for="ekspedisi">Pengantaran</label><br>
+        <label for="ekspedisi"><h5>Pengantaran</h5></label><br>
         <div class="card">
             <div class="card-body">
-                <input type="radio" name="ekspedisi" value="prioritas">Solitare<br>
+                <input type="radio" name="ekspedisi" value="solitare">Solitare<br>
                 <p>Tiba dalam beberapa jam</p><hr>
-                <input type="radio" name="ekspedisi" value="standar">Prioritas<br>
+                <input type="radio" name="ekspedisi" value="prioritas">Prioritas<br>
                 <p>Dikirim besok</p><hr>
-                <input type="radio" name="ekspedisi" value="hemat">Ekonomi
+                <input type="radio" name="ekspedisi" value="ekonomi">Ekonomi
                 <p>1-2 hari</p>
             </div>
-        </div><br>   
+        </div><br> 
 
-        <input type="submit" value="Check Out">
+        <!-- Alamat Pengantaran -->
+        <h5>Alamat Pengantaran</h5>
+        <div class="card">
+            <div class="card-body">
+                <label for="">Nama Penerima</label><br>
+                <input type="text" id="customername" name="customer" placeholder="Masukkan Nama Lengkap" required><br><br>
+
+                <label for="">Nomor Telepon</label><br>
+                <input type="text" id="phoneNumber" name="telepon" placeholder="Masukkan Nomor HP Anda" required><br><br>
+
+                <label for="">Alamat Lengkap</label><br>
+                <input type="text" id="address" name="alamat" placeholder="Masukkan Alamat Lengkap Anda" required><br><br>
+
+                <label for="">Catatan untuk kurir</label><br>
+                <input type="text" id="notes" name="catatan" placeholder="Silakan isi catatan atau informasi penting untuk kurir" required>
+            </div>
+        </div><br>
+        
+         <!--Tombol Check Out  -->
+            <button type="submit">Check Out</button></a>
+       
     </form>
-
+    
 </body>
 </html>
