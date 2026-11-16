@@ -5,4 +5,52 @@ div box
   margin-bottom: 15px;
 }
 
+.search-container{
+  width: 100%;
+  position: relative;
+  max-width: 450px;
+}
+
+#searchBar, #NamaProduk{
+  width: 100%;
+  background: white;
+  border: 1px solid #dfe1e5;
+  box-sizing: border-box;
+}
+
+#searchBar{
+  padding: 14px 20px ;
+  font-size: 16px;
+  border-radius: 24px;
+  outline:none;
+  box-shadow:0 2px 5px rgba(0,0,0,05);
+}
+
+.ListProduk{
+  padding:12px 20px;
+  font-size: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+.ListProduk:hover{
+  background-color: #dfe1e5;
+}
+
+.ListProduk.show{
+  display: block;
+}
+
+#NamaProduk{
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  border-radius: 12px;
+  padding: 0;
+  margin:0;
+  z-index:10;
+  list-style: none;
+  box-shadow: #808080;
+}
 
