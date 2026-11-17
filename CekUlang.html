@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -10,26 +11,21 @@
     <!--halaman ke-3-->
     <!-- Konfirmasi Pesanan -->
      <div class="card m-4">
+    <div class="card-body">
+        <h3>Keranjang Belanja</h3>
 
-        <div class="card-body">
-            <h3>Konfirmasi Pesanan</h3>
-            <p>Rincian Pesanan:</p><hr>
+        <div id="daftarproduk"></div>
 
-            <div id="daftarproduk">
-                <div class="produk">
-                    <p>Nama produk: <span class="namaproduk"></span></p>
-                    <p>Jumlah: <span class="jumlahproduk"></span></p>
-                    <p>Harga Satuan: <span class="hargasatuan"></span></p>
-                    <p>Subtotal: <span class="subtotal"></span></p>
-                </div>
-            </div><hr>
+        <hr>
 
-            <p><b>Total Harga: <span class="totalharga"></span></b></p>
-            <a href="co.html"> 
-                <button type="button">Lanjut</button></a>
+        <h5>Total Harga: <span class="totalharga"></span></h5>
 
-     </div>
+        <a href="menu.html" class="btn btn-secondary">Kembali</a>
 
-     <script src="script.js"></script>
+        <a href="co.html" class="btn btn-success">Lanjut Checkout</a>
+    </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

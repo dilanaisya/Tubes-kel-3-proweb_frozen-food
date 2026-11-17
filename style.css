@@ -1,17 +1,89 @@
-
 body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-div harga {
- font-size: 30px;
+#harga {
+    font-size: 30px;
 }
 
 #box {
-  background-color: #ADD8E6;
-  position: fixed;
-  bottom: 190px;
-  right: 10px;
-  box-shadow: 0 4px 10PX rgba(0,0,0,0.2);
-  border-radius: 15px; 
+    background-color: #ADD8E6;
+    position: fixed;
+    bottom: 190px;
+    right: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+/* kartu produk */
+#Menu .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#Menu .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+#Menu .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* tombol jumlah produk */
+#Menu .quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+#Menu .quantity-control button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    background-color: #198754;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#Menu .quantity-control button:hover {
+    background-color: #146c43;
+}
+
+#Menu .quantity-control .jumlah {
+    width: 25px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* kartu keranjang */
+.cart-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.cart-item button {
+    margin-right: 8px;
 }
