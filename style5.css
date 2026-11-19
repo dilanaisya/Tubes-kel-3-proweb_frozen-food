@@ -6,3 +6,18 @@
   box-shadow: 0 4px 10PX rgba(0,0,0,0.2);
   border-radius: 15px; 
 }
+
+#ThanksCard {
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+
+#TombolBeranda button {
+  font-size: 20px;
+  background-color: #198754 ;
+  cursor: pointer;
+  color: aliceblue;
+  border-radius: 15px;
+  padding: 10px;
+}
