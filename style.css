@@ -6,8 +6,12 @@ body {
     font-size: 30px;
 }
 
-#box {
+#box { /*box-fixed*/
+    background-color: #ADD8E6;
     position: fixed;
+    bottom:190px;
+    right: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
