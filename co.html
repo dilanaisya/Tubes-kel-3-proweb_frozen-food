@@ -16,7 +16,7 @@
     <form action="akhir.html" method="GET">
 
         <!-- Ringkasan Pesanan -->
-        <h5>Ringkasan Pesanan</h5>
+        <h5 class="mt-4">Ringkasan Pesanan</h5>
         <div class="card">
             <div class="card-body" id="ringkasanPesanan">
 
@@ -25,10 +25,15 @@
         <br>
 
         <!-- Metode Pembayaran -->
-        <label for="method"><h5 class="mt-4">Metode Pembayaran</h5></label>
+        <label for="method"><h5>Metode Pembayaran</h5></label>
         <div class="card">
             <div class="card-body">
-                <input type="radio" name="method" value="transfer" required>Transfer <br><hr>
+              <input type="radio" id="radio-transfer" name="method" value="transfer" required>Transfer
+              <div id="area-transfer">
+                <p>Mandiri (123456789)</p> 
+                <p>Upload bukti pembayaran</p>
+                <input type="file" id="input-bukti" name=upload value="bukti"><br><hr>
+              </div>
                 <input type="radio" name="method" value="tunai">Tunai <br>
             </div>
         </div><br>
