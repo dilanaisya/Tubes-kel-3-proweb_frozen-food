@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2026 at 08:50 AM
+-- Generation Time: Nov 20, 2026 at 02:50 AM
 -- Server version: 10.11.16-MariaDB
 -- PHP Version: 8.3.36
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cart` (
-  `idcart` int(11) NOT NULL,
-  `iduser` int(11) NOT NULL,
-  `idproduk` int(11) NOT NULL,
+  `id_cart` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,7 +41,7 @@ CREATE TABLE `cart` (
 --
 
 CREATE TABLE `categories` (
-  `idkategori` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
   `kategori` varchar(50) NOT NULL,
   `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -53,8 +53,8 @@ CREATE TABLE `categories` (
 --
 
 CREATE TABLE `orders` (
-  `idorder` int(11) NOT NULL,
-  `iduser` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama_penerima` varchar(150) NOT NULL,
   `telepon_penerima` varchar(25) NOT NULL,
   `alamat` text NOT NULL,
@@ -69,12 +69,12 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `order_item` (
-  `idorderitem` int(11) NOT NULL,
-  `idorder` int(11) NOT NULL,
-  `idproduk` int(11) NOT NULL,
+  `id_order_item` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `hargasatuan` decimal(10,0) NOT NULL,
-  `totalorder` decimal(10,0) NOT NULL
+  `harga_satuan` decimal(10,0) NOT NULL,
+  `total_order` decimal(10,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -84,11 +84,11 @@ CREATE TABLE `order_item` (
 --
 
 CREATE TABLE `payment` (
-  `idpayment` int(11) NOT NULL,
-  `idorder` int(11) NOT NULL,
+  `id_payment` int(11) NOT NULL,
+  `id_order` int(11) NOT NULL,
   `metode` varchar(50) NOT NULL,
-  `jumlahbayar` decimal(10,0) NOT NULL,
-  `statusbayar` enum('Pending','Success','Failed') NOT NULL DEFAULT 'Pending'
+  `jumlah_bayar` decimal(10,0) NOT NULL,
+  `status_bayar` enum('Pending','Success','Failed') NOT NULL DEFAULT 'Pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -98,9 +98,9 @@ CREATE TABLE `payment` (
 --
 
 CREATE TABLE `products` (
-  `idproduk` int(11) NOT NULL,
-  `idkategori` int(11) NOT NULL,
-  `namaproduk` varchar(50) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `produk` varchar(50) NOT NULL,
   `deskripsi` text DEFAULT NULL,
   `harga` decimal(10,0) NOT NULL,
   `stok` int(11) NOT NULL DEFAULT 0
@@ -113,7 +113,7 @@ CREATE TABLE `products` (
 --
 
 CREATE TABLE `users` (
-  `iduser` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -126,43 +126,43 @@ CREATE TABLE `users` (
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`idcart`);
+  ADD PRIMARY KEY (`id_cart`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`idkategori`);
+  ADD PRIMARY KEY (`id_kategori`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`idorder`);
+  ADD PRIMARY KEY (`id_order`);
 
 --
 -- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
-  ADD PRIMARY KEY (`idorderitem`);
+  ADD PRIMARY KEY (`id_order_item`);
 
 --
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`idpayment`);
+  ADD PRIMARY KEY (`id_payment`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`idproduk`);
+  ADD PRIMARY KEY (`id_produk`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`iduser`),
+  ADD PRIMARY KEY (`id_user`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
@@ -173,43 +173,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `idcart` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cart` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `idkategori` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `idorder` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_item`
 --
 ALTER TABLE `order_item`
-  MODIFY `idorderitem` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order_item` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `idpayment` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `idproduk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
