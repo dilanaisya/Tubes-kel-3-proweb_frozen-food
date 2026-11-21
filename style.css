@@ -6,21 +6,26 @@ body {
     font-size: 30px;
 }
 
-#box {
+#box { /*box-fixed*/
     background-color: #ADD8E6;
     position: fixed;
-    bottom: 190px;
+    bottom:190px;
     right: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+.card img{
+    height:100%;
+    object-fit: cover;
+}
 
-/* tombol jumlah produk */
 #Menu .quantity-control {
     display: flex;
-    margin-top: auto;
     align-items: center;
+    margin-top:auto;
+    justify-content: center;
+    padding-top: 15px;
 }
 
 #Menu .quantity-control button {
