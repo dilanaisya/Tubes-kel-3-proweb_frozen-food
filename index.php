@@ -2,8 +2,8 @@
  include 'koneksi.php';
 session_start();
 
-&error = "";
-&sukses = "";
+$error = "";
+$sukses = "";
 
 if (isset($_POST['kirim'])) {
     $username = $_POST['username'];
