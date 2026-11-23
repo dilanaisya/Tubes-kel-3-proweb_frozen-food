@@ -1,25 +1,24 @@
 <?php
  include 'koneksi.php';
 session_start();
-
 $error = "";
 $sukses = "";
 
 if (isset($_POST['kirim'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    echo "Selamat datang, " . $user;
+    echo "Selamat datang, " . $username;
 
  $query = "SELECT * FROM users WHERE email = ?";
     $stmt = mysqli_prepare($koneksi, $query);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "s", $user);
+        mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         $data = mysqli_fetch_assoc($result);
     
-        if (password_verify($pass, $data['Password']) || $pass === $data['Password']) {
+        if (password_verify($password, $data['Password']) || $password === $data['Password']) {
             $_SESSION['login'] = true;
             $_SESSION['email'] = $data['Email'];
             header("Location: menu.php");
