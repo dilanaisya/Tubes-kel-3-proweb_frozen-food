@@ -21,7 +21,7 @@ if (isset($_POST['kirim'])) {
         if (password_verify($password, $data['Password']) || $password === $data['Password']) {
             $_SESSION['login'] = true;
             $_SESSION['email'] = $data['Email'];
-            header("Location: menu.php");
+            header("Location: menu.html");
             exit;
         }else {
             $error = "Email atau password salah";

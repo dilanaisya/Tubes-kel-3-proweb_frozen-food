@@ -7,7 +7,23 @@ function formatRupiah(angka) {
     return 'Rp' + angka.toLocaleString('id-ID');
 }
 
-// Fitur login diproses di sisi server oleh PHP pada index.php
+//FITUR LOGIN
+const loginForm = document.querySelector('#login form');
+if (loginForm) {
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+        if (email.trim() === '' || password.trim() === '') {
+            alert('Email dan password harus diisi!');
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+            alert('Format email tidak valid!');
+        } else {
+            window.location.href = 'menu.html';
+        }
+    });
+}
+
 
 //FITUR PENCARIAN PRODUK
 const searchInput = document.querySelector('#searchBar');
@@ -268,7 +284,7 @@ if (tombolLanjut) {
         if (keranjang.length === 0) {
             event.preventDefault();
             alert('Keranjang masih kosong!');
-            window.location.href = 'menu.php';
+            window.location.href = 'menu.html';
         }
     });
 }
@@ -309,7 +325,7 @@ if (checkoutForm) {
         if (keranjang.length === 0) {
             event.preventDefault();
             alert('Keranjang masih kosong!');
-            window.location.href = 'menu.php';
+            window.location.href = 'menu.html';
             return;
         }
 
