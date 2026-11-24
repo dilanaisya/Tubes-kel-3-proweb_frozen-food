@@ -13,7 +13,7 @@
 <body>
 
     <!--halaman ke-4-->
-    <form action="akhir.html" method="GET">
+   <form action="simpanan_pesanan.php" method="POST"></form>
 
         <!-- Ringkasan Pesanan -->
         <h5 class="mt-4">Ringkasan Pesanan</h5>
@@ -68,6 +68,8 @@
                 <input type="text" class="form-control" id="notes" name="catatan" placeholder="Silakan isi catatan atau informasi penting untuk kurir" required>
             </div>
         </div>
+        
+        <input type="hidden" name="items_json" id="items_json">
         
          <!--Tombol Check Out  -->
         <button type="submit" class="btn btn-outline-success mx-4 mb-4"><b>Check Out</b></button>

@@ -1,34 +1,31 @@
 <?php
- include 'koneksi.php';
+include 'koneksi.php';
 session_start();
 $error = "";
-$sukses = "";
-
 if (isset($_POST['kirim'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    echo "Selamat datang, " . $username;
-
- $query = "SELECT * FROM users WHERE email = ?";
-    $stmt = mysqli_prepare($koneksi, $query);
-
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "s", $username);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        $data = mysqli_fetch_assoc($result);
-    
-        if (password_verify($password, $data['Password']) || $password === $data['Password']) {
-            $_SESSION['login'] = true;
-            $_SESSION['email'] = $data['Email'];
-            header("Location: menu.html");
-            exit;
-        }else {
-            $error = "Email atau password salah";
-        }
+$email = ($_POST['username'] ?? '');
+$password = $_POST['password'] ?? '';
+if ($email !== '' && $password !== '') {
+$query = "INSERT INTO users (email, password) VALUES (?, ?)";
+$stmt = mysqli_prepare($koneksi, $query);
+if ($stmt) {
+mysqli_stmt_bind_param($stmt, "ss", $email, $password);
+if (mysqli_stmt_execute($stmt)) {
+$_SESSION['login'] = true;
+$_SESSION['email'] = $email;
+header("Location: menu.html");
+exit;
+} else {
+$error = "Gagal menyimpan data: " . mysqli_stmt_error($stmt);
+}
+} else {
+$error = "Query gagal disiapkan: " . mysqli_error($koneksi);
+}
+} else {
+$error = "Email dan password harus diisi.";
 }
 }
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +54,7 @@ if (isset($_POST['kirim'])) {
                 
                 <tr>
             <th></th>
-           <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></td>
+           <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></td>
                 </tr>
 
             </table>

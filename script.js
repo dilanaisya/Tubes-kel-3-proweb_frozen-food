@@ -11,16 +11,13 @@ function formatRupiah(angka) {
 const loginForm = document.querySelector('#login form');
 if (loginForm) {
     loginForm.addEventListener('submit', function(event) {
-        event.preventDefault();
         const email = document.querySelector('#username').value;
         const password = document.querySelector('#password').value;
-        if (email.trim() === '' || password.trim() === '') {
+        if (email.trim() === '' || password.trim() === '') {event.preventDefault();
             alert('Email dan password harus diisi!');
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {event.preventDefault();
             alert('Format email tidak valid!');
-        } else {
-            window.location.href = 'menu.html';
-        }
+        } 
     });
 }
 
@@ -316,7 +313,7 @@ if (ringkasanPesanan) {
 }
 
 //VALIDASI CHECKOUT
-const checkoutForm = document.querySelector('form[action="akhir.html"]');
+const checkoutForm = document.querySelector('form[action="simpanan_pesanan.php"]');
 const bukti = document.getElementById('input-bukti');
 
 if (checkoutForm) {
@@ -357,6 +354,10 @@ if (checkoutForm) {
             produk: keranjang
         };
 
+        const inputItemsJson = document.getElementById('items_json');
+        if (inputItemsJson) {
+            inputItemsJson.value = JSON.stringify(keranjang);
+        }
         localStorage.setItem('dataPesanan', JSON.stringify(pesanan));
         localStorage.setItem('keranjang', JSON.stringify([]));
     });
