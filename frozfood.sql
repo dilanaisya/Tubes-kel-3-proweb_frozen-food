@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 20, 2026 at 02:50 AM
+-- Generation Time: Nov 24, 2026 at 05:11 AM
 -- Server version: 10.11.16-MariaDB
 -- PHP Version: 8.3.36
 
@@ -114,8 +114,8 @@ CREATE TABLE `products` (
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -126,7 +126,9 @@ CREATE TABLE `users` (
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id_cart`);
+  ADD PRIMARY KEY (`id_cart`),
+  ADD KEY `fk_cart_users` (`id_user`),
+  ADD KEY `fk_cart_products` (`id_produk`);
 
 --
 -- Indexes for table `categories`
@@ -138,32 +140,38 @@ ALTER TABLE `categories`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id_order`);
+  ADD PRIMARY KEY (`id_order`),
+  ADD KEY `fk_orders_users` (`id_user`);
 
 --
 -- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
-  ADD PRIMARY KEY (`id_order_item`);
+  ADD PRIMARY KEY (`id_order_item`),
+  ADD KEY `fk_order_item_orders` (`id_order`),
+  ADD KEY `fk_order_item_products` (`id_produk`);
 
 --
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id_payment`);
+  ADD PRIMARY KEY (`id_payment`),
+  ADD KEY `fk_payment_orders` (`id_order`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id_produk`);
+  ADD PRIMARY KEY (`id_produk`),
+  ADD KEY `fk_products_categories` (`id_kategori`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `email_2` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -210,6 +218,42 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `fk_cart_products` FOREIGN KEY (`id_produk`) REFERENCES `products` (`id_produk`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_cart_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_orders_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_item`
+--
+ALTER TABLE `order_item`
+  ADD CONSTRAINT `fk_order_item_orders` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_order_item_products` FOREIGN KEY (`id_produk`) REFERENCES `products` (`id_produk`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `payment`
+--
+ALTER TABLE `payment`
+  ADD CONSTRAINT `fk_payment_orders` FOREIGN KEY (`id_order`) REFERENCES `orders` (`id_order`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_products_categories` FOREIGN KEY (`id_kategori`) REFERENCES `categories` (`id_kategori`) ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
