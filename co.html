@@ -10,13 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: rgb(212, 233, 249);">
 
     <!--halaman ke-4-->
    <form action="simpanan_pesanan.php" method="POST"></form>
 
         <!-- Ringkasan Pesanan -->
-        <h5 class="mt-4">Ringkasan Pesanan</h5>
+        <h5 class="mt-4 hal4"><b>Ringkasan Pesanan</b></h5>
         <div class="card">
             <div class="card-body" id="ringkasanPesanan">
 
@@ -25,7 +25,7 @@
         <br>
 
         <!-- Metode Pembayaran -->
-        <label for="method"><h5>Metode Pembayaran</h5></label>
+        <label for="method"><h5 class="hal4"><b>Metode Pembayaran</b></h5></label>
         <div class="card">
             <div class="card-body">
               <input type="radio" id="radio-transfer" name="method" value="transfer" required>Transfer
@@ -34,25 +34,25 @@
                 <p>Upload bukti pembayaran</p>
                 <input type="file" id="input-bukti" name=upload value="bukti"><hr>
               </div>
-                <input type="radio" name="method" value="tunai">Tunai <br>
+                <input type="radio" name="method" value="tunai">Tunai<br>
             </div>
         </div><br>
 
     <!-- Pemilihan Ekspedisi -->
-        <label for="ekspedisi"><h5>Pengantaran</h5></label>
+        <label for="ekspedisi"><h5 class="hal4"><b>Pengantaran</b></h5></label>
         <div class="card">
             <div class="card-body">
                 <input type="radio" name="ekspedisi" value="solitare" required>Solitare<br>
-                <p>Tiba dalam beberapa jam</p><hr>
+                <p class="teks">Tiba dalam beberapa jam</p><hr>
                 <input type="radio" name="ekspedisi" value="prioritas">Prioritas<br>
-                <p>Dikirim besok</p><hr>
+                <p class="teks">Dikirim besok</p><hr>
                 <input type="radio" name="ekspedisi" value="ekonomi">Ekonomi
-                <p>1-2 hari</p>
+                <p class="teks">1-2 hari</p>
             </div>
         </div><br>
 
         <!-- Alamat Pengantaran -->
-        <h5>Alamat Pengantaran</h5>
+        <h5 class="hal4"><b>Alamat Pengantaran</b></h5>
         <div class="card">
             <div class="card-body">
                 <label for="">Nama Penerima</label>
@@ -72,7 +72,7 @@
         <input type="hidden" name="items_json" id="items_json">
         
          <!--Tombol Check Out  -->
-        <button type="submit" class="btn btn-outline-success mx-4 mb-4"><b>Check Out</b></button>
+        <button type="submit" class="btn btn-outline-primary mx-4 mb-4"><b>Check Out</b></button>
     </form>
 
 <script src="script.js"></script>
