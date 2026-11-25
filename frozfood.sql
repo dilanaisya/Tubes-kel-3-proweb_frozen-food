@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2026 at 05:11 AM
+-- Generation Time: Nov 25, 2026 at 02:15 PM
 -- Server version: 10.11.16-MariaDB
 -- PHP Version: 8.3.36
 
@@ -103,7 +103,8 @@ CREATE TABLE `products` (
   `produk` varchar(50) NOT NULL,
   `deskripsi` text DEFAULT NULL,
   `harga` decimal(10,0) NOT NULL,
-  `stok` int(11) NOT NULL DEFAULT 0
+  `stok` int(11) NOT NULL DEFAULT 0,
+  `gambar` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
