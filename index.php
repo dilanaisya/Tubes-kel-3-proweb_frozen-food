@@ -1,31 +1,10 @@
 <?php
-include 'koneksi.php';
-session_start();
-$error = "";
-if (isset($_POST['kirim'])) {
-$email = ($_POST['username'] ?? '');
-$password = $_POST['password'] ?? '';
-if ($email !== '' && $password !== '') {
-$query = "INSERT INTO users (email, password) VALUES (?, ?)";
-$stmt = mysqli_prepare($koneksi, $query);
-if ($stmt) {
-mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-if (mysqli_stmt_execute($stmt)) {
-$_SESSION['login'] = true;
-$_SESSION['email'] = $email;
-header("Location: menu.html");
-exit;
-} else {
-$error = "Gagal menyimpan data: " . mysqli_stmt_error($stmt);
-}
-} else {
-$error = "Query gagal disiapkan: " . mysqli_error($koneksi);
-}
-} else {
-$error = "Email dan password harus diisi.";
-}
-}
-?> 
+  if (isset($_POST['kirim'])) {
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      echo "Selamat datang, " . $user;
+  }
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
