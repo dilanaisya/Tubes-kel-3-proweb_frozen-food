@@ -1,31 +1,11 @@
 <?php
-include 'koneksi.php';
-session_start();
-$error = "";
+if (isset($_POST['login'])) {
+    $user = $_POST['user'] ?? '';
+    $pass = $_POST['pass'] ?? '';
 
-if (isset($_POST['kirim'])) {
-    $email = trim($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
-
-    if ($email !== '' && $password !== '') {
-        $query = "INSERT INTO users (email, password) VALUES (?, ?)";
-        $stmt = mysqli_prepare($koneksi, $query);
-
-        if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ss", $email, $password);
-            if (mysqli_stmt_execute($stmt)) {
-                $_SESSION['login'] = true;
-                $_SESSION['email'] = $email;
-                header("Location: menu.html");
-                exit;
-            } else {
-                $error = "Gagal menyimpan data: " . mysqli_stmt_error($stmt);
-            }
-        } else {
-            $error = "Query gagal disiapkan: " . mysqli_error($koneksi);
-        }
-    } else {
-        $error = "Email dan password harus diisi.";
+    if ($user !== '' && $pass !== '') {
+        header("Location: menu.html");
+        exit;
     }
 }
 ?>
@@ -43,7 +23,7 @@ if (isset($_POST['kirim'])) {
     <h1 style="text-align: center;"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
     <p style="font-size:20px; text-align: center;">Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p><br>
     <div id="login">
-        <form method="post" action="">
+        <form method="post" action="index.php">
             <table class="table table-bordered text-center mx-auto" style="width: 800px;">
                 <tr>
           <th><label for="username" class="mt-3 mb-3"> Email</label></th>
