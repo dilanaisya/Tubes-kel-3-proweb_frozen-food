@@ -13,8 +13,7 @@
 <body style="background-color: rgb(212, 233, 249);">
 
     <!--halaman ke-4-->
-   <form action="simpanan_pesanan.php" method="POST"></form>
-
+   
         <!-- Ringkasan Pesanan -->
         <h5 class="mt-4 hal4"><b>Ringkasan Pesanan</b></h5>
         <div class="card">
@@ -72,6 +71,7 @@
         <input type="hidden" name="items_json" id="items_json">
         
          <!--Tombol Check Out  -->
+        <form action="simpanan_pesanan.php" method="POST" enctype="multipart/form-data">
         <button type="submit" class="btn btn-outline-primary mx-4 mb-4"><b>Check Out</b></button>
     </form>
 
