@@ -313,7 +313,7 @@ if (ringkasanPesanan) {
 }
 
 //VALIDASI CHECKOUT
-const checkoutForm = document.querySelector('form[action="simpanan_pesanan.php"]');
+const checkoutForm = document.querySelector('form[action="]');
 const bukti = document.getElementById('input-bukti');
 
 if (checkoutForm) {

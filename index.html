@@ -1,14 +1,3 @@
-<?php
-if (isset($_POST['login'])) {
-    $user = $_POST['user'] ?? '';
-    $pass = $_POST['pass'] ?? '';
-
-    if ($user !== '' && $pass !== '') {
-        header("Location: menu.html");
-        exit;
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
