@@ -1,4 +1,7 @@
-
+<?php
+// TAMBAHAN: halaman ini wajib login (kode HTML di bawah tetap milik Anda)
+require 'cek_login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +29,8 @@
                 <li><a class="nav-link active"  href="#Beranda">Beranda</a></li>
                 <li><a class="nav-link" href="#Menu">Produk</a></li>
                 <li><a class="nav-link" href="#Kontak">Kontak</a></li>
+                <!-- TAMBAHAN: tombol keluar -->
+                <li><a class="nav-link" href="logout.php">Keluar</a></li>
             </ul></div>
         </div>  
       </nav>

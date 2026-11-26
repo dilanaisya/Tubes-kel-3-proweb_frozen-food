@@ -1,4 +1,28 @@
+<?php
+// TAMBAHAN: proses login (kode HTML di bawah tetap milik Anda)
+session_start();
+require 'koneksi.php';
+$error = '';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['username'] ?? '');
+    $pass  = $_POST['password'] ?? '';
+
+    $stmt = $koneksi->prepare("SELECT id_user, nama, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $user = $stmt->get_result()->fetch_assoc();
+
+    if ($user && password_verify($pass, $user['password'])) {
+        session_regenerate_id(true);
+        $_SESSION['id_user'] = $user['id_user'];
+        $_SESSION['nama']    = $user['nama'];
+        header("Location: menu.php");
+        exit;
+    }
+    $error = 'Email atau password salah.';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +33,18 @@
 </head>
 <body>
     <h1 style="text-align: center;"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
-    <p style="font-size:20px; text-align: center;">Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p><br>
+    <p style="font-size:20px; text-align: center;">Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p>
+    <!-- TAMBAHAN: link ke halaman registrasi & pesan error -->
+    <p style="text-align: center;">Belum punya akun? <a href="register.php">Registrasi di sini</a></p>
+    <?php if ($error): ?>
+        <p style="text-align: center; color: red;"><?= htmlspecialchars($error) ?></p>
+    <?php endif; ?>
+    <?php if (isset($_GET['daftar'])): ?>
+        <p style="text-align: center; color: green;">Registrasi berhasil, silakan login.</p>
+    <?php endif; ?>
+    <br>
     <div id="login">
-        <form method="post" action="index.php">
+        <form method="post" action="login.php">
             <table class="table table-bordered text-center mx-auto" style="width: 800px;">
                 <tr>
           <th><label for="username" class="mt-3 mb-3"> Email</label></th>
