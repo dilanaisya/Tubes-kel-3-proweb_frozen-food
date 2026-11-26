@@ -186,13 +186,12 @@ function tampilkanKeranjang() {
         const item = document.createElement('div');
         item.className = 'card cart-item h-100 shadow';
 
-       const gambar = document.createElement('img');
-       if (produk.nama === 'Siomay Mba Mimo') {
-           gambar.src = 'Siomay.jpeg';
-       } else {
-           gambar.src = produk.gambar || '';
-       }
-
+      const gambar = document.createElement('img');
+        if (produk.nama === 'Siomay Mba Mimo') {
+            gambar.src = '../assets/image/Siomay.jpeg';
+        } else {
+            gambar.src = produk.gambar || '../assets/image/default.jpg';
+        }
         gambar.alt = produk.nama;
         gambar.className = 'card-img-top';
         gambar.style.height = '180px';
@@ -313,7 +312,7 @@ if (ringkasanPesanan) {
 }
 
 //VALIDASI CHECKOUT
-const checkoutForm = document.querySelector('form[action="]');
+const checkoutForm = document.querySelector('form[action="../php/proses_checkout.php"]');
 const bukti = document.getElementById('input-bukti');
 
 if (checkoutForm) {

@@ -1,30 +1,18 @@
+
 <?php
 session_start();
-include "koneksi.php";
+$email = trim($_POST["username"] ?? "");
+$password = trim($_POST["password"] ?? "");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = mysqli_real_escape_string($koneksi, trim($_POST["username"] ?? ""));
-    $password = mysqli_real_escape_string($koneksi, trim($_POST["password"] ?? ""));
 
-    if ($email === "" || $password === "") {
-        echo "<script>alert('Email dan password harus diisi!'); window.location.href='login.php';</script>";
-        exit;
-    }
-
-    $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password' LIMIT 1";
-    $result = mysqli_query($koneksi, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
-        $_SESSION["id_user"] = $user["id_user"] ?? 1;
-        $_SESSION["email"] = $email;
-        header("Location: menu.html");
-        exit;
-    } else {
-        echo "<script>alert('Email atau password tidak sesuai!'); window.location.href='login.php';</script>";
-        exit;
-    }
+if ($email == "" || $password == "") {
+    echo "<script>
+        alert('Email dan password harus diisi!');
+        window.location.href = '../pages1/login.html';
+    </script>";
+    exit;
 }
+<<<<<<< HEAD
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,3 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="script.js"></script>
 </body>
 </html>
+=======
+
+$_SESSION["login"] = true;
+$_SESSION["email"] = $email;
+header("Location: ../pages1/menu.html");
+exit;
+?>
+>>>>>>> 734ebc2097753e07e661465d9c7e393ce0bc10db
