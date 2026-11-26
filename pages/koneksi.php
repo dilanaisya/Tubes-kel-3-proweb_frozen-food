@@ -6,6 +6,5 @@ if (!$koneksi) {
 } else {
  // echo "Koneksi berhasil!";
 }
-// TAMBAHAN: agar huruf/karakter tampil benar
 mysqli_set_charset($koneksi, "utf8mb4");
 ?>

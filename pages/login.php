@@ -8,19 +8,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['username'] ?? '');
     $pass  = $_POST['password'] ?? '';
 
-    $stmt = $koneksi->prepare("SELECT id_user, nama, password FROM users WHERE email = ?");
+    // SELECT * supaya tidak error jika nama kolom lain berbeda
+    $stmt = $koneksi->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $user = $stmt->get_result()->fetch_assoc();
 
-    if ($user && password_verify($pass, $user['password'])) {
-        session_regenerate_id(true);
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['nama']    = $user['nama'];
-        header("Location: menu.php");
-        exit;
+    $cocok = false;
+    if ($user) {
+        $tersimpan = (string)($user['password'] ?? '');
+        if (!empty(password_get_info($tersimpan)['algo'])) {
+            
+            $cocok = password_verify($pass, $tersimpan);
+        } else {
+            // password di database masih teks biasa
+            $cocok = hash_equals($tersimpan, $pass);
+        }
     }
-    $error = 'Email atau password salah.';
+
+    if ($cocok) {
+        $idUser = $user['id_user'] ?? $user['id'] ?? null;
+        if ($idUser === null) {
+            $error = 'Kolom id pada tabel users tidak ditemukan (id_user / id).';
+        } else {
+            session_regenerate_id(true);
+            $_SESSION['id_user'] = $idUser;
+            header("Location: menu.php");
+            exit;
+        }
+    } else {
+        $error = 'Email atau password salah.';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -34,13 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1 style="text-align: center;"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
     <p style="font-size:20px; text-align: center;">Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p>
-    <!-- TAMBAHAN: link ke halaman registrasi & pesan error -->
-    <p style="text-align: center;">Belum punya akun? <a href="register.php">Registrasi di sini</a></p>
+    <!-- TAMBAHAN: pesan error login -->
     <?php if ($error): ?>
         <p style="text-align: center; color: red;"><?= htmlspecialchars($error) ?></p>
-    <?php endif; ?>
-    <?php if (isset($_GET['daftar'])): ?>
-        <p style="text-align: center; color: green;">Registrasi berhasil, silakan login.</p>
     <?php endif; ?>
     <br>
     <div id="login">
@@ -58,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <tr>
             <th></th>
-           <td><a href="menu.html"><type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></a></td>
+           <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></td>
                 </tr>
 
             </table>

@@ -1,4 +1,4 @@
-<!DOCTYPE html
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,7 +13,7 @@
 <body style="background-color: rgb(212, 233, 249);">
 
     <!--halaman ke-4-->
-    <form action="simpanan_pesanan.php" method="POST"> </form>
+    <form action="simpanan_pesanan.php" method="POST" enctype="multipart/form-data">
         <!-- Ringkasan Pesanan -->
         <h5 class="mt-4 hal4"><b>Ringkasan Pesanan</b></h5>
         <div class="card">
@@ -31,7 +31,7 @@
               <div id="area-transfer">
                 <p>Mandiri (123456789)</p> 
                 <p>Upload bukti pembayaran</p>
-                <input type="file" id="input-bukti" name=upload value="bukti"><hr>
+                <input type="file" id="input-bukti" name="upload" value="bukti"><hr>
               </div>
                 <input type="radio" name="method" value="tunai">Tunai<br>
             </div>
@@ -71,8 +71,8 @@
         <input type="hidden" name="items_json" id="items_json">
         
          <!--Tombol Check Out  -->
-       <a href="akhir.html">
-        <button type="submit" class="btn btn-outline-primary mx-4 mb-4"><b>Check Out</b></button></a>
+       
+        <button type="submit" class="btn btn-outline-primary mx-4 mb-4"><b>Check Out</b></button>
     </form>
 
 <script src="../assets/js/script.js"></script>
