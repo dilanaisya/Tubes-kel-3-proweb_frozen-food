@@ -12,7 +12,6 @@ if ($email == "" || $password == "") {
     </script>";
     exit;
 }
-<<<<<<< HEAD
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,14 +56,6 @@ if ($email == "" || $password == "") {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </div>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>
-=======
-
-$_SESSION["login"] = true;
-$_SESSION["email"] = $email;
-header("Location: ../pages1/menu.html");
-exit;
-?>
->>>>>>> 734ebc2097753e07e661465d9c7e393ce0bc10db
