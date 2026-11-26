@@ -20,11 +20,12 @@
     margin-bottom: 4px;
     margin-left: 24px;
     color: rgb(53, 71, 137);
+    font-family: Lilita One;
+    font-size: 23px;
 }
 
-h2 {
-    text-align: center;
-    font-family: "Great Vibes";
+h3 {
+    font-family: Lilita One;
 }
 
 .teks{

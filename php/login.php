@@ -32,27 +32,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frozfood Selera Jaya</title>
+    <link rel="stylesheet" href="../assets/css/stylelogin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Agrave+Pro:wght@100..700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <h1 style="text-align: center;"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
-    <p style="font-size:20px; text-align: center;">Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p><br>
+    <h1><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
+    <p>Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p><br>
     <div id="login">
         <form method="post" action="login.php">
-            <table class="table table-bordered text-center mx-auto" style="width: 800px;">
+            <table class="table table-bordered text-center mx-auto login-card">
                 <tr>
-          <th><label for="username" class="mt-3 mb-3"> Email</label></th>
-           <td><input type="email" class="form-control mt-3 mb-3" style="padding: 10px 25px;" id="username" name="username" placeholder=" Nama_Akun@gmail.com"></td>
+          <th class="label-login"><label for="username" class="mt-4 mb-4"> Email</label></th>
+           <td><input type="email" class="form-control mt-4 mb-4" id="username" name="username" placeholder=" Nama_Akun@gmail.com"></td>
                 </tr>
 
                 <tr>
-            <th><label for="password" class="mt-3 mb-3">Password</label></th>
-           <td><input type="Password" class="form-control mt-3 mb-3" style="padding: 10px 25px;" id="password" name="password"></td>
+            <th class="label-login"><label for="password" class="mt-4 mb-4">Password</label></th>
+           <td><input type="Password" class="form-control mt-4 mb-4" id="password" name="password"></td>
                 </tr>
                 
                 <tr>
             <th></th>
-           <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></td>
+           <td><button type="submit" class="btn btn-outline-primary mt-2 mb-2" id="kirim" name="kirim"><b>Kirim</b></button></td>
                 </tr>
 
             </table>
