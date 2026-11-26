@@ -1,3 +1,51 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#harga {
+    font-size: 30px;
+}
+
+#box { /*box-fixed*/
+    background-color: #ADD8E6;
+    position: fixed;
+    bottom:190px;
+    right: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.card img{
+    height:100%;
+    object-fit: cover;
+}
+
+#Menu .quantity-control {
+    display: flex;
+    align-items: center;
+    margin-top:auto;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+#Menu .quantity-control button {
+    background-color: #198754;
+    cursor: pointer;
+}
+
+#Menu .quantity-control button:hover {
+    background-color: #146c43;
+}
+
+#Menu .quantity-control .jumlah {
+    width: 25px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+
 /* bagian pencarian */
 #SearchBar {
     display: flex;
@@ -13,8 +61,7 @@
     max-width: 450px;
 }
 
-#searchBar,
-#NamaProduk {
+#searchBar, #NamaProduk {
     width: 100%;
     background: white;
     border: 1px solid #dfe1e5;
