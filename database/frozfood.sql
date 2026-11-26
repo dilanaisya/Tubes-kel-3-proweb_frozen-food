@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2026 at 02:15 PM
+-- Generation Time: Nov 26, 2026 at 02:51 PM
 -- Server version: 10.11.16-MariaDB
 -- PHP Version: 8.3.36
 
@@ -59,7 +59,7 @@ CREATE TABLE `orders` (
   `telepon_penerima` varchar(25) NOT NULL,
   `alamat` text NOT NULL,
   `total_harga` decimal(10,0) NOT NULL,
-  `status` enum('Pending','Processing','Completed','Cancelled') NOT NULL DEFAULT 'Pending'
+  `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -88,7 +88,7 @@ CREATE TABLE `payment` (
   `id_order` int(11) NOT NULL,
   `metode` varchar(50) NOT NULL,
   `jumlah_bayar` decimal(10,0) NOT NULL,
-  `status_bayar` enum('Pending','Success','Failed') NOT NULL DEFAULT 'Pending'
+  `status_bayar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -116,7 +116,7 @@ CREATE TABLE `products` (
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -171,8 +171,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD UNIQUE KEY `email_2` (`email`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -218,7 +217,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
