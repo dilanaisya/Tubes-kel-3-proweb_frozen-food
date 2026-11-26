@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <tr>
             <th></th>
-           <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></td>
+           <td><a href="menu.html"><type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></a></td>
                 </tr>
 
             </table>
