@@ -1,0 +1,38 @@
+
+.card {
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 24px;
+    margin-right: 24px;
+
+    background: linear-gradient(90deg, #EAF7FF, #C6E8FA, #A8D6F2);
+}
+
+.card .card{
+    background: white;
+}
+
+.card-body {
+    background: transparent;
+}
+
+.hal4 {
+    margin-bottom: 4px;
+    margin-left: 24px;
+    color: rgb(53, 71, 137);
+    font-family: Lilita One;
+    font-size: 23px;
+}
+
+h3 {
+    font-family: Lilita One;
+}
+
+.teks{
+    color: rgb(128, 132, 245);
+}
+
+
+
+
+

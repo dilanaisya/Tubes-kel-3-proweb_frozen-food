@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi - Frozfood Selera Jaya</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css/stylelogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,6 +56,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <tr class="align-middle"><th class="label-login">Password</th><td><input type="password" class="form-control mt-4 mb-4" name="password" minlength="6" required></td></tr>
             <tr><th></th><td>
                 <button type="submit" class="btn btn-outline-primary"><b>Daftar</b></button>
+=======
+</head>
+<body>
+    <h1 style="text-align:center;"><b>Registrasi</b></h1>
+    <?php if ($error): ?>
+        <div class="alert alert-danger text-center mx-auto" style="width:800px;max-width:95%;"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+    <form method="post" action="register.php">
+        <table class="table table-bordered text-center mx-auto" style="width:800px;max-width:95%;">
+            <tr><th>Nama</th><td><input type="text" class="form-control" name="nama" required></td></tr>
+            <tr><th>Email</th><td><input type="email" class="form-control" name="email" required></td></tr>
+            <tr><th>Password</th><td><input type="password" class="form-control" name="password" minlength="6" required></td></tr>
+            <tr><th></th><td>
+                <button type="submit" class="btn btn-outline-success"><b>Daftar</b></button>
+>>>>>>> a95151b (perbaikan)
                 <a href="login.php" class="btn btn-link">Sudah punya akun?</a>
             </td></tr>
         </table>
