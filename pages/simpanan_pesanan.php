@@ -34,10 +34,7 @@ $alamatLengkap = $alamat
 
 // 2. Validasi bukti transfer (file disimpan setelah id_order diketahui)
 $extBukti = null;
-<<<<<<< HEAD
 $folderBukti= __DIR__ . '/../assets/bukti/';
-=======
->>>>>>> a95151b (perbaikan)
 if ($metode === 'transfer') {
     if (!isset($_FILES['upload']) || $_FILES['upload']['error'] !== UPLOAD_ERR_OK) gagal('Bukti pembayaran wajib diupload.');
     $extBukti = strtolower(pathinfo($_FILES['upload']['name'], PATHINFO_EXTENSION));
@@ -102,11 +99,7 @@ try {
     // Bukti transfer: tidak ada kolomnya, jadi nama file memakai nomor pesanan
     // contoh: uploads/bukti_12.jpg  (pesanan dengan id_order = 12)
     if ($extBukti !== null) {
-<<<<<<< HEAD
         $fileBukti = $folderBukti . 'bukti_' . $idOrder . '.' . $extBukti;
-=======
-        $fileBukti = __DIR__ . '/../uploads/bukti_' . $idOrder . '.' . $extBukti;
->>>>>>> a95151b (perbaikan)
         if (!move_uploaded_file($_FILES['upload']['tmp_name'], $fileBukti)) {
             throw new Exception('Gagal menyimpan bukti pembayaran.');
         }
@@ -121,10 +114,7 @@ try {
     if ($fileBukti && file_exists($fileBukti)) @unlink($fileBukti);
     gagal($e->getMessage());
 }
-<<<<<<< HEAD
 
 
 
 
-=======
->>>>>>> a95151b (perbaikan)
