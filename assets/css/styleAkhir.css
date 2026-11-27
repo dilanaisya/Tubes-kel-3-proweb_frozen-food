@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 50px;
   right: 10px;
-  box-shadow: 0 4px 10PX rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   border-radius: 15px; 
 }
 
