@@ -12,7 +12,13 @@ if ($email == "" || $password == "") {
     </script>";
     exit;
 }
+
+$SESSION["login"] = $email;
+
+header("Location: ../pages1/menu.html");
+exit;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
