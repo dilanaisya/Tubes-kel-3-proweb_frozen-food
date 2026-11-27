@@ -29,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frozfood Selera Jaya</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
     <link rel="stylesheet" href="../assets/css/stylelogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,12 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1 class="mt-4"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
     <p>Sebelum melakukan pemesanan, silakan login. Belum punya akun? <a href="register.php">Registrasi di sini</a>.</p><br>
-=======
-</head>
-<body>
-    <h1 style="text-align:center;"><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
-    <p style="font-size:20px;text-align:center;">Sebelum melakukan pemesanan, silakan login. Belum punya akun? <a href="register.php">Registrasi di sini</a>.</p><br>
->>>>>>> a95151b (perbaikan)
 
     <?php if (isset($_GET['daftar'])): ?>
         <div class="alert alert-success text-center mx-auto" style="width:800px;max-width:95%;">Registrasi berhasil, silakan login.</div>
@@ -57,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div id="login">
         <form method="post" action="login.php">
-<<<<<<< HEAD
             <table class="table table-bordered text-center mx-auto login-card">
                 <tr class="align-middle">
                     <th class="label-login"><label for="username">Email</label></th>
@@ -70,20 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <tr class="align-middle">
                     <th></th>
                     <td><button type="submit" class="btn btn-outline-primary" id="kirim" name="kirim"><b>Kirim</b></button></td>
-=======
-            <table class="table table-bordered text-center mx-auto" style="width:800px;max-width:95%;">
-                <tr>
-                    <th><label for="username" class="mt-3 mb-3">Email</label></th>
-                    <td><input type="email" class="form-control mt-3 mb-3" style="padding:10px 25px;" id="username" name="email" placeholder="Nama_Akun@gmail.com"></td>
-                </tr>
-                <tr>
-                    <th><label for="password" class="mt-3 mb-3">Password</label></th>
-                    <td><input type="password" class="form-control mt-3 mb-3" style="padding:10px 25px;" id="password" name="password"></td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <td><button type="submit" class="btn btn-outline-success" id="kirim" name="kirim"><b>Kirim</b></button></td>
->>>>>>> a95151b (perbaikan)
                 </tr>
             </table>
         </form>
