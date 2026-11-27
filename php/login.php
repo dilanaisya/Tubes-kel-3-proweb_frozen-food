@@ -1,15 +1,9 @@
-
 <?php
 session_start();
-$email = trim($_POST["username"] ?? "");
-$password = trim($_POST["password"] ?? "");
+include "koneksi.php";
 
-
-if ($email == "" || $password == "") {
-    echo "<script>
-        alert('Email dan password harus diisi!');
-        window.location.href = '../pages1/login.html';
-    </script>";
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: ../pages/login.html");
     exit;
 }
 
@@ -35,33 +29,24 @@ exit;
     <link href="https://fonts.googleapis.com/css2?family=Agrave+Pro:wght@100..700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <h1><b>Hi! </b>Selamat Datang di Frozfood Selera Jaya</h1>
-    <p>Sebelum melakukan pemesanan, mohon untuk melakukan registrasi terlebih dahulu dan pastikan bahwa datamu sesuai.</p><br>
-    <div id="login">
-        <form method="post" action="login.php">
-            <table class="table table-bordered text-center mx-auto login-card">
-                <tr>
-          <th class="label-login"><label for="username" class="mt-4 mb-4"> Email</label></th>
-           <td><input type="email" class="form-control mt-4 mb-4" id="username" name="username" placeholder=" Nama_Akun@gmail.com"></td>
-                </tr>
+$email    = trim($_POST['username']);
+$password = $_POST['password'];
 
-                <tr>
-            <th class="label-login"><label for="password" class="mt-4 mb-4">Password</label></th>
-           <td><input type="Password" class="form-control mt-4 mb-4" id="password" name="password"></td>
-                </tr>
-                
-                <tr>
-            <th></th>
-           <td><button type="submit" class="btn btn-outline-primary mt-2 mb-2" id="kirim" name="kirim"><b>Kirim</b></button></td>
-                </tr>
+$stmt = mysqli_prepare($koneksi, "SELECT * FROM users WHERE email = ?");
+mysqli_stmt_bind_param($stmt, "s", $email);
+mysqli_stmt_execute($stmt);
+$hasil = mysqli_stmt_get_result($stmt);
+$user  = mysqli_fetch_assoc($hasil);
 
-            </table>
-        
-        </form>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </div>
+// Cocok jika password disimpan biasa ATAU disimpan dengan password_hash
+if ($user && ($password === $user['password'] || password_verify($password, $user['password']))) {
+    $_SESSION['id_user'] = $user['id_user'];
+    header("Location: ../pages/menu.html");
+    exit;
+}
 
-    <script src="../assets/js/script.js"></script>
-</body>
-</html>
+echo "<script>
+    alert('Email atau password salah!');
+    window.location.href = '../pages/login.html';
+</script>";
+?>
