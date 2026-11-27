@@ -1,0 +1,35 @@
+#box {
+  background-color: #ADD8E6;
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 15px; 
+}
+
+#ThanksCard {
+  display: flex;
+  justify-content: center; 
+  padding: 40px 16px 0 16px; 
+}
+
+#ThanksCard img {
+  max-width: 750px; 
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#TombolBeranda button {
+  font-size: 20px;
+  background-color: #198754 ;
+  cursor: pointer;
+  color: aliceblue;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.font {
+  font-family: Pacifico;
+  font-size: 33px;
+}
