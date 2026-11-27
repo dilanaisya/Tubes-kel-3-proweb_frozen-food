@@ -98,13 +98,13 @@ $gambarKhusus = [
             <p><i class="fa-solid fa-phone"></i> <a href="tel:+6281340855948" class="text-dark">0813-4085-5948</a></p>
         </div>
         <div>
-            <p><i class="fa-brands fa-instagram fa-lg"></i> <a href="#" class="text-dark">Frozfood Selera Jaya</a></p>
+            <p><i class="fa-brands fa-instagram fa-lg"></i> <a href="#" class="text-dark">Frozfood Jaya</a></p>
         </div>
     </div>
     </section>
 
     <footer class="bg-light text-dark pb-3">
-        <p class="text-center mb-0">&copy; 2026 Frozfood Selera Jaya</p>
+        <p class="text-center mb-0">&copy; 2026 Frozfood Jaya</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
